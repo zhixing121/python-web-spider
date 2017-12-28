@@ -7,7 +7,7 @@ downloadDirectory = "downloaded"
 baseUrl = "http://pythonscraping.com"
 
 
-def getAbsoluteUrl(baseUrl, source):
+def getAbsoluteUrl(baseUrl, source):  #获取
     if source.startswith("http://www."):
         url = "http://"+source[11:]
     elif source.startswith("http://"):
@@ -36,9 +36,9 @@ def getDownloadPath(baseUrl, absoluteUrl, downloadDirectory):
 html = urlopen("http://www.pythonscraping.com")
 bsObj = BeautifulSoup(html, "html.parser")
 
-downloadList = bsObj.findAll(src=True)
+downloadList = bsObj.findAll(src=True)  #找到所有的src
 
 for download in downloadList:
-    fileUrl = getAbsoluteUrl(baseUrl, download["src"])
+    fileUrl = getAbsoluteUrl(baseUrl, download["src"])  #从src获取绝对路径链接
     if fileUrl is not None:
         print(fileUrl)
