@@ -14,7 +14,6 @@ def getLinks(articleUrl):
     bsObj = BeautifulSoup(html, "html.parser")
     # print(bsObj)
     return bsObj.find("div", {"id": "bodyContent"}).findAll("a", href=re.compile("^(/wiki/)((?!:).)*$"))
-
 # 得到编辑历史ip
 def getHistoryIps(pageUrl):
     pageUrl = pageUrl.replace("/wiki/", "")
@@ -49,4 +48,4 @@ while len(links)>0:
             if country is not None:
                 print(historyIp + " is from " + country)
     newLink = links[random.randint(0,len(links)-1)].attrs["href"]
-    links = getLinks(newLink)
+    links = getLinks(newLink)>>>>>>> .r6
